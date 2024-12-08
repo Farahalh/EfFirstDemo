@@ -135,3 +135,4 @@ C:\Users\Farah\source\repos\EfFirstDemo\EfFirstDemo\obj\Debug\net9.0\refint\EfFi
 C:\Users\Farah\source\repos\EfFirstDemo\EfFirstDemo\obj\Debug\net9.0\EfFirstDemo.pdb
 C:\Users\Farah\source\repos\EfFirstDemo\EfFirstDemo\obj\Debug\net9.0\EfFirstDemo.genruntimeconfig.cache
 C:\Users\Farah\source\repos\EfFirstDemo\EfFirstDemo\obj\Debug\net9.0\ref\EfFirstDemo.dll
+C:\Users\Farah\source\repos\EfFirstDemo\EfFirstDemo\obj\Debug\net9.0\EfFirstDemo.sourcelink.json
