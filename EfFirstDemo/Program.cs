@@ -21,8 +21,10 @@ class Program
         //Create DbContext instance
         using var db = new BloggingContext();
 
-        //Delete the database everytime
+        //Drop the database if it exists
         db.Database.EnsureDeleted();
+
+        //Create the datbase if it doesn't exist
         db.Database.EnsureCreated();
 
         //Recreate he database from the model
