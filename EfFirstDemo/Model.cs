@@ -64,4 +64,14 @@ public class Post
 
     public int BlogId { get; set; }
     public Blog? Blog { get; set; } //required
+    public List<Writer> Writers { get; }
 }
+
+public class Writer
+{
+    public int WriterId { get; set; }
+    public string Name { get; set; } = null!;
+
+    public List<Post> Posts { get; } 
+}
+
