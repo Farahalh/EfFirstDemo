@@ -45,6 +45,7 @@ public class BloggingContext : DbContext
     }
 }
 
+
 [Table("Moo")]
 public class Blog
 {
@@ -55,23 +56,61 @@ public class Blog
 }
 
 
-[Table("Raawr")]
-public class Post
+public class Tag
 {
-    public int PostId { get; set; }
-    public string? Title { get; set; }
-    public string? Content { get; set; }
-
-    public int BlogId { get; set; }
-    public Blog? Blog { get; set; } //required
-    public List<Writer> Writers { get; }
+    public int TagId { get; set; }
+    public string Name { get; set; }
+    public List<Post> Post { get; set; }
 }
 
+[PrimaryKey(nameof(PostId), nameof(TagId))]
+public class Post_Tag
+{
+    public int PostId { get; set; }
+    public Post Post { get; set; }
+    public int TagId { get; set; }
+    public Tag Tag { get; set; }
+}
+
+
+
+
+[Table("Raawr", Schema = "Raawring")]
+public class Post
+{
+    [Key]
+    public int PostNumber { get; set; }
+
+    [Column(TypeName = "varchar(200)")]
+    public string? Title { get; set; }
+
+    [Required]
+    public string Content { get; set; }
+
+    public int BlogId { get; set; }
+
+    [ForeignKey(nameof(BlogId))]
+    public Blog? Blog { get; set; } //required
+    public List<Writer> Writers { get; }
+
+    public List<Tag> Tags { get; set; }
+}
+
+
+[Comment("Writers ont the website")]
 public class Writer
 {
     public int WriterId { get; set; }
+
+    [Column("writer_name")]
     public string Name { get; set; } = null!;
 
     public List<Post> Posts { get; } 
+}
+
+[NotMapped]
+public class BlogMetadata
+{
+    public DateTime LoadedFromDatabase { get; set; }
 }
 
